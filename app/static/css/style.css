@@ -1,0 +1,85 @@
+/* Общие стили для страницы */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Стили для контейнера формы */
+.login-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+}
+
+/* Стили для заголовка */
+h1 {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Стили для полей ввода */
+.input-field {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+/* Стили для кнопки */
+.submit-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+/* Стили для анимированных графиков-декораций */
+.chart-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bar-decoration {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: moveBar 5s linear infinite;
+}
+
+@keyframes moveBar {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+

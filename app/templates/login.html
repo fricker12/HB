@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Вход</title>
+</head>
+<body>
+    <div class="chart-decoration">
+        <div class="bar-decoration" style="left: 10%; height: 50px;"></div>
+        <div class="bar-decoration" style="left: 30%; height: 70px;"></div>
+        <div class="bar-decoration" style="left: 50%; height: 40px;"></div>
+        <div class="bar-decoration" style="left: 70%; height: 60px;"></div>
+        <div class="bar-decoration" style="left: 90%; height: 30px;"></div>
+    </div>
+    <div class="login-container">
+        <h1>A single platform for managing all your work</h1>
+        <form method="POST">
+            <input class="input-field" type="text" name="username" placeholder="Имя пользователя" required><br><br>
+            <input class="input-field" type="password" name="password" placeholder="Пароль" required><br><br>
+            <button class="submit-button" type="submit">Войти</button>
+        </form>
+    </div>
+</body>
+</html>
