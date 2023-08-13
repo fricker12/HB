@@ -11,6 +11,32 @@ body {
     overflow: hidden;
 }
 
+@media (max-width: 767px) {
+
+    /* Adjustments for smaller screens */
+    .main-container {
+        margin-top: 20px;
+    }
+
+    /* Adjust the font size for smaller screens */
+    .code-container pre {
+        font-size: 14px;
+    }
+
+    /* Other responsive adjustments as needed */
+}
+
+/* Responsive styles for larger screens (desktop) */
+@media (min-width: 768px) {
+
+    /* Adjustments for larger screens */
+    .main-container {
+        margin-top: 0;
+    }
+
+    /* Other responsive adjustments as needed */
+}
+
 .birthday-background {
     background-image: url('back.webp');
     background-size: cover;
@@ -26,55 +52,52 @@ body {
     /* Добавьте жирное начертание */
 }
 
-.video-container {
+.birthday-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 70vh;
-    /* Высота видео контейнера, чтобы не занимал всю высоту экрана */
-    position: relative;
-    /* Добавьте позиционирование для правильного размещения блока с кодом */
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.747);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Centering the code container */
 .code-container {
     margin-top: 20px;
     text-align: center;
-    /* Center the content horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Center items horizontally */
-    justify-content: center;
-    /* Center the container vertically */
-    height: 100vh;
-    /* Fill the height of the viewport */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 80%;
+    /* Center the container horizontally */
+    margin: 0 auto;
 }
 
 /* Styling for the code block */
 .code-container pre {
-    font-size: 18px;
-    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    font-family: 'Pixel', Arial,sans-serif;
     padding: 20px;
-    border: 2px solid #333;
-    background-color: #000000c4;
+    border: none;
+    background-color: transparent;
     color: #ffffff;
     white-space: pre-wrap;
-    width: auto;
-    /* Set width to auto to adjust to content */
-    max-width: 80%;
-    /* Limit the maximum width of the code block */
-    margin: 0 auto;
-    /* Center the code block horizontally */
-    position: relative;
-    perspective: 1000px;
-    transition: transform 1s ease;
 }
 
-/* Animation effect on hover */
-.code-container pre:hover {
-    transform: rotateY(180deg);
-    /* Flip the text on hover */
+.code-container pre code {
+    font-family: 'Pixel', Arial, sans-serif;
+    font-size: 20px;
+    /* Adjust the font size as needed */
+    line-height: 1;
+    letter-spacing: 0;
+    /* Adjust as needed for pixelated effect */
+    font-weight: normal;
+    color: #f4f8f8;
+    /* Green color for CRT effect */
 }
 
 .main-container {
@@ -149,6 +172,32 @@ h1 {
     background-color: #222; /* Добавьте этот стиль для темной темы */
 }
 
+.dark-theme .birthday-background {
+    background-color: #111;
+    /* Dark background color */
+    color: white;
+    /* Light text color for better contrast */
+}
+
+.dark-theme .birthday-container {
+    background-color: rgba(0, 0, 0, 0.747);
+    /* Darker background for the container */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    /* Adjust the shadow color */
+}
+
+.dark-theme .code-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Darker background for the code container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Adjust the shadow color */
+}
+
+.dark-theme .code-container pre {
+    color: #b3b3b3;
+    /* Lighter code text color */
+}
+
 /* Стили для контейнера Земли */
 .earth-container {
     position: absolute;
@@ -201,3 +250,4 @@ h1 {
     z-index: 1;
     /* Place the fireworks above other elements */
 }
+
