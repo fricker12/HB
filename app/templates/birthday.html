@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/theme-switcher.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/birthday.css') }}">
     <title>День рождения</title>
-    <style>
-        body {
-            background-color: #f0f0f0;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .balloon {
-            width: 50px;
-            height: 70px;
-            background-color: #ff69b4;
-            border-radius: 50%;
-            position: absolute;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-    </style>
 </head>
-<body>
-    <h1>С Днем Рождения!</h1>
-    <div class="balloon" style="left: 20%; top: 40%;"></div>
-    <div class="balloon" style="left: 50%; top: 30%;"></div>
-    <div class="balloon" style="left: 80%; top: 50%;"></div>
-    <p>Поздравляем вас с особенным днем! Пусть этот день будет полон радости и счастья.</p>
+
+<body class="birthday-background">
+    <div class="main-container">
+        <div class="birthday-container">
+            <div class="fireworks-container">
+                <svg class="fireworks" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+                    <!-- Fireworks animations will be added here -->
+                </svg>
+            </div>
+
+            <circle class="firework" cx="250" cy="250" r="1" fill="#ffcc00">
+                <animate attributeName="r" from="1" to="10" dur="0.5s" begin="0s" repeatCount="indefinite" />
+                <animate attributeName="opacity" from="1" to="0" dur="0.5s" begin="0s" repeatCount="indefinite" />
+                <animate attributeName="cy" from="250" to="200" dur="0.5s" begin="0s" repeatCount="indefinite" />
+            </circle>
+            <!-- Вывод видео по центру -->
+            <!-- Блок с кодом ниже видео -->
+            <div class="code-container">
+                <pre>
+                <code>
+                    {
+                    "greeting": "С Днем Рождения!",
+                    "message": "Дорогой Дмитрий, с днем рождения, человек, чьи навыки и знания в мире IT сверкают ярче самых современных технологий! Твоя преданность и преданность к этой области вдохновляют нас всех. Твои коды - это как произведения искусства, а твои алгоритмы - чудо современной науки. Мы ценим твою экспертизу и твою способность решать самые сложные задачи с легкостью. Твой вклад в наше сообщество IT-профессионалов огромен, и мы рады, что можем называть тебя одним из наших. Пусть этот год принесет тебе еще больше крутых проектов, захватывающих вызовов и инновационных идей. Пусть каждый код, который ты напишешь, будет как шедевр, а каждый проект - как веха в твоей карьере. С днем рождения, Дмитрий! Пусть мир IT продолжает раскрываться перед тобой, как бескрайний и захватывающий ландшафт возможностей.
+                    С наилучшими пожеланиями, Константин"
+                    }
+                </code>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-switch-container">
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <div class="slider round"></div>
+        </label>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/theme-switcher.js') }}"></script>
+    <script>
+        const codeLines = document.querySelector('.code-lines');
+
+        for (let i = 0; i < 20; i++) {
+            const line = document.createElement('div');
+            line.className = 'code-line';
+            codeLines.appendChild(line);
+        }
+    </script>
+    <script>
+        const fireworksContainer = document.querySelector('.fireworks');
+
+        // Create multiple fireworks animations
+        for (let i = 0; i < 20; i++) {
+            const firework = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            firework.setAttribute("class", "firework");
+            firework.setAttribute("cx", Math.random() * 500);
+            firework.setAttribute("cy", Math.random() * 500);
+            firework.setAttribute("r", Math.random() * 3 + 1);
+            firework.setAttribute("fill", `hsl(${Math.random() * 360}, 70%, 60%)`);
+
+            const animationDuration = Math.random() * 2 + 1;
+            const animationDelay = Math.random() * 2;
+            firework.innerHTML = `
+                <animate attributeName="r" from="1" to="${Math.random() * 20 + 5}" dur="${animationDuration}s" begin="${animationDelay}s" repeatCount="indefinite" />
+                <animate attributeName="opacity" from="1" to="0" dur="${animationDuration}s" begin="${animationDelay}s" repeatCount="indefinite" />
+                <animate attributeName="cy" from="${Math.random() * 500}" to="${Math.random() * 100}" dur="${animationDuration}s" begin="${animationDelay}s" repeatCount="indefinite" />
+            `;
+
+            fireworksContainer.appendChild(firework);
+        }
+    </script>
 </body>
+
 </html>

@@ -3,10 +3,88 @@ body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
+}
+
+.birthday-background {
+    background-image: url('back.webp');
+    background-size: cover;
+    background-position: center;
+}
+/* Стили для текста в блоке <code> */
+.code {
+    font-size: 16px;
+    /* Настройте размер шрифта по вашему желанию */
+    color: red;
+    /* Используйте любой желаемый цвет */
+    font-weight: bold;
+    /* Добавьте жирное начертание */
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    /* Высота видео контейнера, чтобы не занимал всю высоту экрана */
+    position: relative;
+    /* Добавьте позиционирование для правильного размещения блока с кодом */
+}
+
+/* Centering the code container */
+.code-container {
+    margin-top: 20px;
+    text-align: center;
+    /* Center the content horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center the container vertically */
+    height: 100vh;
+    /* Fill the height of the viewport */
+}
+
+/* Styling for the code block */
+.code-container pre {
+    font-size: 18px;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+    border: 2px solid #333;
+    background-color: #000000c4;
+    color: #ffffff;
+    white-space: pre-wrap;
+    width: auto;
+    /* Set width to auto to adjust to content */
+    max-width: 80%;
+    /* Limit the maximum width of the code block */
+    margin: 0 auto;
+    /* Center the code block horizontally */
+    position: relative;
+    perspective: 1000px;
+    transition: transform 1s ease;
+}
+
+/* Animation effect on hover */
+.code-container pre:hover {
+    transform: rotateY(180deg);
+    /* Flip the text on hover */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-top: 0;
+    /* Remove margin-top to center the container properly */
 }
 
 /* Стили для контейнера формы */
@@ -53,33 +131,73 @@ h1 {
 .submit-button:hover {
     background-color: #45a049;
 }
-/* Стили для анимированных графиков-декораций */
-.chart-decoration {
+.dark-theme {
+    background-color: #222;
+    color: white;
+}
+
+/* Стили для футера */
+.footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    margin-top: auto;
+    background-color: #f0f0f0; /* Добавьте этот стиль */
+}
+
+.dark-theme .footer {
+    background-color: #222; /* Добавьте этот стиль для темной темы */
+}
+
+/* Стили для контейнера Земли */
+.earth-container {
     position: absolute;
-    width: 100%;
+    left: 0;
+    top: 0;
+    width: 50%; /* Занимает место от левого края до середины страницы */
     height: 100%;
     overflow: hidden;
     pointer-events: none;
     z-index: -1;
 }
 
-.bar-decoration {
+/* Стили для Земли */
+.earth {
     position: absolute;
-    bottom: 0;
-    width: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    animation: moveBar 5s linear infinite;
+    width: 100%;
+    height: 100%;
+    background: url('earth.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    animation: rotateEarth 10s linear infinite; /* Анимация вращения */
+    z-index: -1;
 }
 
-@keyframes moveBar {
+/* Анимация вращения Земли */
+@keyframes rotateEarth {
     0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-40px);
+        transform: rotate(0deg);
     }
     100% {
-        transform: translateY(0);
+        transform: rotate(360deg);
     }
 }
 
+/* Анимация вращения Земли в темной теме */
+@keyframes rotateEarthDark {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg); /* Вращение в обратную сторону */
+    }
+}
+
+.fireworks-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    /* Place the fireworks above other elements */
+}

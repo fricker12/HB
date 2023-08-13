@@ -1,0 +1,36 @@
+/* birthday.css */
+.balloon {
+    width: 50px;
+    height: 70px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+/* Стили для конфетти */
+.confetti {
+    width: 10px;
+    height: 10px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    position: absolute;
+    animation: floatConfetti 4s ease-in-out infinite;
+}
+
+@keyframes floatConfetti {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-20px, -20px);
+    }
+}
