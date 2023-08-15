@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 app = Flask(__name__)
 
 # Простой список для хранения пар пользователей
-users = [{"username": "admin", "password": "admin"}]
+users = [{"username": "Fedorov", "password": "admin"}]
 
 
 @app.route("/", methods=["GET", "POST"])
